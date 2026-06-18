@@ -18,6 +18,7 @@
    ```
 2. Abre Godot 4, haz click en **Import** y selecciona el archivo `project.godot` de la carpeta del repo.
 3. Con el proyecto abierto, apretá **F5** (o el botón ▶ arriba a la derecha) para correrlo.
+4. yo: godot --path "/Users/diegollull/Desktop/Riot HWG/Dungeon-Plataformer-Procedural"
 
 ## Controles
 

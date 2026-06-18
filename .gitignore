@@ -18,3 +18,7 @@ data_*/
 
 # System / editor files
 .DS_Store
+
+#claude
+claude/
+claude.md

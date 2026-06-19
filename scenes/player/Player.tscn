@@ -14,3 +14,8 @@ shape = SubResource("RectangleShape2D_collision")
 [node name="Sprite" type="Polygon2D" parent="."]
 color = Color(0.231, 0.694, 0.886, 1)
 polygon = PackedVector2Array(-8, -14, 8, -14, 8, 14, -8, 14)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0

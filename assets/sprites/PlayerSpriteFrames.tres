@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/knight_m_idle_anim_f0.png" id="1_vcegs"]
+[ext_resource type="Texture2D" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/knight_m_idle_anim_f1.png" id="2_d52nc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/knight_m_idle_anim_f2.png" id="3_58tl2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/knight_m_idle_anim_f3.png" id="4_gcmqh"]
+[ext_resource type="Texture2D" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/knight_m_run_anim_f0.png" id="5_ahl6b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/knight_m_run_anim_f1.png" id="6_bhhlc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/knight_m_run_anim_f2.png" id="7_6a861"]
+[ext_resource type="Texture2D" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/knight_m_run_anim_f3.png" id="8_83jcj"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vcegs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d52nc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_58tl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gcmqh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ahl6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bhhlc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6a861")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_83jcj")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]

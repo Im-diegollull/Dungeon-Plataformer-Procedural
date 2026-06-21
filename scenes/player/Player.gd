@@ -4,6 +4,8 @@ const SPEED: float = 200.0
 const JUMP_VELOCITY: float = -400.0
 const GRAVITY: float = 980.0
 
+@onready var sprite: AnimatedSprite2D = $Sprite
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -19,3 +21,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
 
 	move_and_slide()
+	_update_animation(direction)
+
+
+func _update_animation(direction: float) -> void:
+	if direction != 0.0:
+		sprite.flip_h = direction < 0.0
+
+	if is_on_floor():
+		sprite.play("run" if direction != 0.0 else "idle")
+	else:
+		sprite.play("idle")

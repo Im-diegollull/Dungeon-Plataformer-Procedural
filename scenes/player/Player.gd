@@ -7,6 +7,10 @@ const GRAVITY: float = 980.0
 @onready var sprite: AnimatedSprite2D = $Sprite
 
 
+func _ready() -> void:
+	add_to_group("player")
+
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="1_player"]
 [ext_resource type="TileSet" uid="uid://darpwjixq4rbs" path="res://assets/sprites/DungeonTileSet.tres" id="2_tileset"]
 [ext_resource type="Script" path="res://scenes/world/Level.gd" id="3_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="4_hud"]
 
 [node name="Level" type="Node2D" unique_id=1427095530]
 script = ExtResource("3_script")
@@ -11,3 +12,5 @@ script = ExtResource("3_script")
 tile_set = ExtResource("2_tileset")
 
 [node name="Player" parent="." unique_id=448801457 instance=ExtResource("1_player")]
+
+[node name="HUD" parent="." instance=ExtResource("4_hud")]

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal hp_changed(hp: int, max_hp: int)
+
 const SPEED: float = 200.0
 const JUMP_VELOCITY: float = -400.0
 const GRAVITY: float = 980.0
@@ -24,6 +26,7 @@ var invulnerable_remaining: float = 0.0
 func _ready() -> void:
 	add_to_group("player")
 	attack_hitbox.body_entered.connect(_on_attack_hitbox_body_entered)
+	hp_changed.emit(hp, MAX_HP)
 
 
 func _physics_process(delta: float) -> void:
@@ -78,6 +81,7 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 
 	hp -= amount
 	invulnerable_remaining = HURT_INVULNERABLE_TIME
+	hp_changed.emit(hp, MAX_HP)
 
 	var knockback_dir: float = sign(global_position.x - source_position.x)
 	velocity.x = knockback_dir * KNOCKBACK_FORCE

@@ -50,7 +50,15 @@ func _physics_process(delta: float) -> void:
 		_attack()
 
 	move_and_slide()
+	_update_blink()
 	_update_animation(direction)
+
+
+func _update_blink() -> void:
+	if invulnerable_remaining > 0.0:
+		sprite.visible = fmod(invulnerable_remaining, 0.16) > 0.08
+	else:
+		sprite.visible = true
 
 
 func _attack() -> void:
@@ -82,6 +90,7 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 	hp -= amount
 	invulnerable_remaining = HURT_INVULNERABLE_TIME
 	hp_changed.emit(hp, MAX_HP)
+	_flash_damage()
 
 	var knockback_dir: float = sign(global_position.x - source_position.x)
 	velocity.x = knockback_dir * KNOCKBACK_FORCE
@@ -89,6 +98,12 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://scenes/ui/GameOver.tscn")
+
+
+func _flash_damage() -> void:
+	sprite.modulate = Color(1.0, 0.3, 0.3, 1.0)
+	var tween := create_tween()
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.12)
 
 
 func _update_animation(direction: float) -> void:

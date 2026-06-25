@@ -100,6 +100,10 @@ func _try_attack() -> void:
 func take_damage(amount: int, source_position: Vector2) -> void:
 	hp -= amount
 
+	sprite.modulate = Color(1.0, 0.3, 0.3, 1.0)
+	var tween := create_tween()
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.12)
+
 	var knockback_dir: float = sign(global_position.x - source_position.x)
 	velocity.x = knockback_dir * KNOCKBACK_FORCE
 	velocity.y = -120.0

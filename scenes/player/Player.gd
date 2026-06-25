@@ -88,7 +88,7 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 	velocity.y = -150.0
 
 	if hp <= 0:
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/ui/GameOver.tscn")
 
 
 func _update_animation(direction: float) -> void:

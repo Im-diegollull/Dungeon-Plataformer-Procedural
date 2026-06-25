@@ -109,6 +109,7 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 	velocity.y = -120.0
 
 	if hp <= 0:
+		AudioManager.play_enemy_death()
 		queue_free()
 
 

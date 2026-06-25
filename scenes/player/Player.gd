@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		AudioManager.play_jump()
 
 	var direction: float = Input.get_axis("ui_left", "ui_right")
 	if direction != 0.0:
@@ -91,12 +92,14 @@ func take_damage(amount: int, source_position: Vector2) -> void:
 	invulnerable_remaining = HURT_INVULNERABLE_TIME
 	hp_changed.emit(hp, MAX_HP)
 	_flash_damage()
+	AudioManager.play_player_hurt()
 
 	var knockback_dir: float = sign(global_position.x - source_position.x)
 	velocity.x = knockback_dir * KNOCKBACK_FORCE
 	velocity.y = -150.0
 
 	if hp <= 0:
+		AudioManager.play_player_death()
 		get_tree().change_scene_to_file("res://scenes/ui/GameOver.tscn")
 
 
